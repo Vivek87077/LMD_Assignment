@@ -13,6 +13,11 @@ app.use(cors());
 app.use(express.json({ limit: '5mb' }));
 app.use(morgan('dev'));
 
+// Root route (for testing deployment)
+app.get("/", (req, res) => {
+  res.send("🚀 Email Marketing Backend is running successfully on Render!");
+});
+
 // Routes
 app.use('/marketing', marketingRoutes);
 app.use('/marketing/webhooks/brevo', brevoWebhook);
